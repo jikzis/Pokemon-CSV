@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Should I evolve this Pokémon?</title>
+  <meta name="description" content="Type a Pokémon and a level. Get a clear answer on whether to evolve now or wait.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>Should I evolve this Pokémon?</h1>
+      <p class="lead">Type a name and your current level. You get a yes, a wait, or a no, and the reason why. Covers 811 Pokémon from generations 1 to 6.</p>
+
+      <form class="search" id="search-form" autocomplete="off">
+        <div class="field field-name">
+          <label for="name-input">Pokémon</label>
+          <input type="text" id="name-input" name="name" placeholder="Pikachu, Eevee, Charmander" required
+                 role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions">
+          <ul class="suggestions" id="suggestions" role="listbox" hidden></ul>
+        </div>
+        <label class="field field-level">
+          <span>Level</span>
+          <input type="number" id="level-input" name="level" min="1" max="100" placeholder="Optional">
+        </label>
+        <button type="submit" id="check-button">Check</button>
+      </form>
+      <p class="hint" id="status" aria-live="polite"></p>
+    </header>
+
+    <section class="result" id="result" hidden>
+      <div class="verdict" id="verdict">
+        <p class="verdict-word" id="verdict-word"></p>
+        <p class="verdict-reason" id="verdict-reason"></p>
+      </div>
+
+      <div class="pair" id="pair"></div>
+
+      <div class="details" id="details"></div>
+    </section>
+
+    <footer class="foot">
+      <p>Pokémon, stats, types, images and evolution lines come from the project dataset (pokemon.csv). Evolution requirements and move timing are added live from <a href="https://pokeapi.co" target="_blank" rel="noopener">PokéAPI</a> when it can be reached.</p>
+    </footer>
+  </main>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="art"><img alt=""></div>
+      <h2 class="card-name"></h2>
+      <p class="card-meta"></p>
+      <ul class="types"></ul>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
